@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 public class Flower {
     private Long id;
     private String name;
-    private String color;
+    private int price;
 }

@@ -25,21 +25,21 @@ public class FlowerController {
     // 상세
     @GetMapping("/{id}")
     public ResponseEntity<?> getFlower(@PathVariable(name = "id") Long id) {
-        String flower = flowerService.getFlower(id);
+        Flower flower = flowerService.getFlower(id);
         return ResponseEntity.ok(flower);
     }
 
     // 추가
     @PostMapping("")
     public ResponseEntity<?> insertFlower(@RequestBody Flower flower) {
-        String result = flowerService.insertFlower(flower.getName(), flower.getColor());
+        String result = flowerService.insertFlower(flower.getName(), flower.getPrice());
         return ResponseEntity.ok(result);
     }
 
     // 수정
     @PutMapping("/{id}")
     public ResponseEntity<?> updateFlower(@PathVariable(name = "id") Long id, @RequestBody Flower flower) {
-        String FlowerInfo = flowerService.updateFlower(id, flower.getName(), flower.getColor());
+        String FlowerInfo = flowerService.updateFlower(id, flower.getName());
         return ResponseEntity.ok(FlowerInfo);
     }
 

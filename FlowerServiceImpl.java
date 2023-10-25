@@ -20,7 +20,7 @@ public class FlowerServiceImpl implements FlowerService {
 
     // 상세
     @Override
-    public String getFlower(Long id) {
+    public Flower getFlower(Long id) {
         Flower flower = new Flower();
         for (int i = 0; i < flowers.size(); i++) {
             if (flowers.get(i).getId() == id) {
@@ -28,37 +28,33 @@ public class FlowerServiceImpl implements FlowerService {
             }
         }
         if (flower.getId() == null) {
-            return "찾는 꽃이 없습니다.";
+            return null;
         }
-        return flower.toString();
+        return flower;
     }
 
     // 추가
     @Override
-    public String insertFlower(String name, String color) {
-        Flower flower = new Flower(indexId, name, color);
+    public String insertFlower(String name, int price) {
+        Flower flower = new Flower(indexId, name, price);
         indexId++;
 
         flowers.add(flower);
-        return flower.getColor() + "색 의 " + flower.getName() + "을 가진 꽃이 잘 등록되었습니다.";
+        return flower.getName() + "을 가진 꽃이 잘 등록되었습니다.";
     }
 
     // 수정
     @Override
-    public String updateFlower(Long id, String name, String color) {
+    public String updateFlower(Long id, String name) {
         String beforeFlowerName = "";
-        String afterFlowerName = "";
-        for (int i = 0; i < flowers.size(); i++) {
-            if (flowers.get(i).getId() == id) {
-                beforeFlowerName = flowers.get(i).getName();
-                flowers.get(i).setName(name);
-                afterFlowerName = flowers.get(i).getName();
-            }
+        // 3. 꽃을 수정한다
+        Flower flower = getFlower(id);
+        if (flower == null) {
+            return "없어";
         }
-        if (beforeFlowerName.equals("")) {
-            return "해당 아이디를 찾을 수 없습니다.";
-        }
-        return beforeFlowerName + "가 " + afterFlowerName + "로 수정되었습니다.";
+        beforeFlowerName = flower.getName();
+        flower.setName(name);
+        return beforeFlowerName + "가 " + name + "로 수정되었습니다.";
     }
 
     // 삭제
@@ -66,18 +62,27 @@ public class FlowerServiceImpl implements FlowerService {
     public String deleteFlower(Long id) {
         String deleteResult = "";
         if (flowers.size() == 0) {
-            deleteResult = "꽃이 없습니다.";
-            return deleteResult;
+            return "꽃이 없습니다.";
         }
+        Flower flower = getFlower(id);
+        if (flower == null) {
+            return "없음";
+        }
+        flowers.remove(flower);
+        return flower.getName();
+    }
+
+    @Override
+    public Flower getFlowerByName(String name) {
+        Flower flower = new Flower();
         for (int i = 0; i < flowers.size(); i++) {
-            if (flowers.get(i).getId() == id) {
-                deleteResult = flowers.get(i).getName() + "이 삭제되었습니다.";
-                flowers.remove(flowers.get(i));
+            if (flowers.get(i).getName().equals(name)) {
+                flower = flowers.get(i);
             }
         }
-        if (deleteResult.equals("")) {
-            return "해당 아이디를 찾을 수 없습니다.";
+        if (flower.getId() == null) {
+            return null;
         }
-        return deleteResult;
+        return flower;
     }
 }
