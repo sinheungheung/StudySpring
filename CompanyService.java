@@ -1,5 +1,12 @@
-package kr.hs.study.StudySpring.service;
+package com.example.st03.service;
+
+import com.example.st03.domain.Company;
+
 
 public interface CompanyService {
-    static String insertDepartment(Long id, String name);
+
+    String insertCompany(String name);
+
+    Company getCompany(String name);
+
 }

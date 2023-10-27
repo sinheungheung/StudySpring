@@ -1,7 +1,8 @@
-package kr.hs.study.StudySpring.service;
+package com.example.st03.service;
 
-import kr.hs.study.StudySpring.domain.Department;
+import com.example.st03.domain.Department;
 
 public interface DepartmentService {
-    Department getDepartmentByName(Long id, String name);
+    String insertDepartment(String name);
+    Department getDepart(String name);
 }

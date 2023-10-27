@@ -1,43 +1,39 @@
-package kr.hs.study.StudySpring.service;
+package com.example.st03.service;
 
-import kr.hs.study.StudySpring.domain.Company;
-import kr.hs.study.StudySpring.domain.Department;
-import lombok.RequiredArgsConstructor;
+import com.example.st03.domain.Company;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@RequiredArgsConstructor
 @Service
-public class CompanyServiceImpl implements CompanyService{
-    private final List<Company> companys = new ArrayList<>();
-    private final DepartmentService departmentService;
+public class CompanyServiceImpl implements CompanyService {
+    final List<Company> companies = new ArrayList<>();
+    private static long indexId = 0L;
 
-    private Company getCompany(Long id){
 
-        Company company = new Company();
-        for(int i = 0; i < companys.size(); i++){
-            if(companys.get(i).getId() == id){
-            company = companys.get(i);
-        }
-    }
-    if(company.getId() == null){
-        return  null;
-    }
-        return company;
-    }
     @Override
-    public String insertDepartment(Long id, String name) {
-        Company foundCompany = getCompany(id);
-        if (foundCompany == null) {
-            return "찾은 회사가 없습니다.";
+    public String insertCompany(String name) {
+        Company company = new Company();
+        company = getCompany(name);
+        if (company != null) {
+            return company.getName() + "존재한다.";
         }
-        Department foundDepartment = departmentService.getDepartmentByName(id, name);
-        if(name == null){
-            return "찾는 부서가 없습니다.";
+        company.setId(indexId);
+        indexId++;
+        company.setName(name);
+        companies.add(company);
+        return "등록되었습니다.";
     }
-        foundCompany.getDepartmentList().add(foundDepartment);
-        return name;
+
+    @Override
+    public Company getCompany(String name) {
+        Company company = new Company();
+        for (int i = 0; i < companies.size(); i++) {
+            if (companies.get(i).getName() == name) {
+               return companies.get(i);
+            }
+        }
+        return null;
     }
 }
