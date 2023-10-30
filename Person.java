@@ -4,25 +4,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
-
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Company {
+@Data
+public class Person {
     private static Long idIndex = 0L;
 
     private Long id;
+    private int personNumber;
     private String name;
-    private int address;
-    private List<Department> departmentList = new ArrayList<>();
+    private Department department;
 
-    public Company(String name, int address) {
+    public Person(String name, int personNumber, Department department) {
         this.id = idIndex;
         this.name = name;
-        this.address = address;
-        this.departmentList = new ArrayList<>();
+        this.personNumber = personNumber;
+        this.department = department;
         idIndex++;
     }
 }

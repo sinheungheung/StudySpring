@@ -2,11 +2,8 @@ package com.example.st03.service;
 
 import com.example.st03.domain.Company;
 
-
 public interface CompanyService {
+    String  createCompany(String name, int address);
 
-    String insertCompany(String name);
-
-    Company getCompany(String name);
-
+    Company findCompanyByName(String name);
 }
