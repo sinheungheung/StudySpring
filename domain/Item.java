@@ -1,4 +1,4 @@
-package com.example.hh.demo01.domain;
+package kr.hs.study.demo01.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,10 +10,9 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "ITEM")
-@Data
 @Entity
+@Data
 public class Item {
-
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,12 +25,11 @@ public class Item {
     private int count;
 
     @Builder(builderMethodName = "createItem")
-    public Item(String name, int count) {
+    public Item(String name, int count){
         this.name = name;
         this.count = count;
     }
-
-    public void minusCount(int minusCount) {
+    public void minusCount(int minusCount){
         this.count -= minusCount;
     }
 }

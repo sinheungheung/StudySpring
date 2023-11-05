@@ -1,8 +1,8 @@
-package com.example.hh.demo01.controller;
+package kr.hs.study.demo01.controller;
 
-import com.example.hh.demo01.domain.Member;
-import com.example.hh.demo01.dto.InsertMemberDto;
-import com.example.hh.demo01.service.MemberService;
+import kr.hs.study.demo01.domain.Member;
+import kr.hs.study.demo01.dto.InsertMemberDto;
+import kr.hs.study.demo01.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

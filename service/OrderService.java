@@ -1,7 +1,6 @@
-package com.example.hh.demo01.service;
+package kr.hs.study.demo01.service;
 
-import com.example.hh.demo01.domain.Order;
-import org.aspectj.weaver.ast.Or;
+import kr.hs.study.demo01.domain.Order;
 
 import java.util.List;
 

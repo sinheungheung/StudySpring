@@ -1,11 +1,11 @@
-package com.example.hh.demo01.service;
+package kr.hs.study.demo01.service;
 
-import com.example.hh.demo01.domain.Item;
-import com.example.hh.demo01.repository.ItemRepository;
+import kr.hs.study.demo01.domain.Item;
+import kr.hs.study.demo01.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
+import javax.transaction.Transactional;
 
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
@@ -14,7 +14,6 @@ public class ItemServiceImpl implements ItemService {
 
     private final ItemRepository itemRepository;
 
-    // 수정, 삭제, 등록
     @Override
     @Transactional
     public Item insertItem(String name, int count) {
@@ -25,4 +24,3 @@ public class ItemServiceImpl implements ItemService {
 
         return itemRepository.save(newItem);
     }
-}

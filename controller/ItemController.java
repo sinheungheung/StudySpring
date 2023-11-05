@@ -1,8 +1,8 @@
-package com.example.hh.demo01.controller;
+package kr.hs.study.demo01.controller;
 
-import com.example.hh.demo01.domain.Item;
-import com.example.hh.demo01.dto.InsertItemDto;
-import com.example.hh.demo01.service.ItemService;
+import kr.hs.study.demo01.domain.Item;
+import kr.hs.study.demo01.dto.InsertItemDto;
+import kr.hs.study.demo01.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

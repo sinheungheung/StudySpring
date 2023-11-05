@@ -1,6 +1,6 @@
-package com.example.hh.demo01.service;
+package kr.hs.study.demo01.service;
 
-import com.example.hh.demo01.domain.Item;
+import kr.hs.study.demo01.domain.Item;
 
 public interface ItemService {
     Item insertItem(String name, int count);

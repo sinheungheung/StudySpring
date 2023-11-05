@@ -1,20 +1,19 @@
-package com.example.hh.demo01.domain;
+package kr.hs.study.demo01.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.aspectj.weaver.ast.Or;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "MEMBER")
-@Data
 @Entity
+@Data
 public class Member {
 
     @Id
@@ -26,11 +25,10 @@ public class Member {
     private String name;
 
     @OneToMany(mappedBy = "member")
-    List<Order> orders = new ArrayList<>();
+    List<Order> orders= new ArrayList<>();
 
     @Builder(builderMethodName = "createMember")
     public Member(String name){
         this.name = name;
     }
 }
-

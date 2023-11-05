@@ -1,17 +1,16 @@
-package com.example.hh.demo01.service;
+package kr.hs.study.demo01.service;
 
-import com.example.hh.demo01.domain.Item;
-import com.example.hh.demo01.domain.Member;
-import com.example.hh.demo01.domain.Order;
-import com.example.hh.demo01.domain.OrderItem;
-import com.example.hh.demo01.repository.ItemRepository;
-import com.example.hh.demo01.repository.MemberRepository;
-import com.example.hh.demo01.repository.OrderItemRepository;
-import com.example.hh.demo01.repository.OrderRepository;
+import kr.hs.study.demo01.domain.Item;
+import kr.hs.study.demo01.domain.Member;
+import kr.hs.study.demo01.domain.Order;
+import kr.hs.study.demo01.repository.ItemRepository;
+import kr.hs.study.demo01.repository.MemberRepository;
+import kr.hs.study.demo01.repository.OrderItemRepository;
+import kr.hs.study.demo01.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 

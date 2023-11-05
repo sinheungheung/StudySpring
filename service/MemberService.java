@@ -1,6 +1,6 @@
-package com.example.hh.demo01.service;
+package kr.hs.study.demo01.service;
 
-import com.example.hh.demo01.domain.Member;
+import kr.hs.study.demo01.domain.Member;
 
 public interface MemberService {
     Member insertMember(String name);

@@ -1,10 +1,11 @@
-package com.example.hh.demo01.service;
+package kr.hs.study.demo01.service;
 
-import com.example.hh.demo01.domain.Member;
-import com.example.hh.demo01.repository.MemberRepository;
+import kr.hs.study.demo01.domain.Member;
+import kr.hs.study.demo01.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
+import javax.transaction.Transactional;
 
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
@@ -20,5 +21,4 @@ public class MemberServiceImpl implements  MemberService{
                 .build();
         return memberRepository.save(newMember);
     }
-
 }
