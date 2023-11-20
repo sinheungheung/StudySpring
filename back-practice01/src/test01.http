@@ -1,0 +1,21 @@
+###
+POST http://localhost:8080/members/login
+Content-Type: application/json
+
+{
+  "email" : "aaa@aaa.com",
+  "password": "abc1"
+}
+
+###
+POST http://localhost:8080/items
+Content-Type: application/json
+
+{
+  "name" : "물티슈",
+  "count": 6,
+  "price": 2000
+}
+
+###
+POST http://localhost:8080/items/39/member/3
